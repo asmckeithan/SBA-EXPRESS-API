@@ -8,8 +8,9 @@ const app = express();
 //assigning the port number for our server 
 const PORT = 3000;
 
-const userRouter = require('./post')
-// the first argument '/' is the path or url. The secounbd argument is the callback function (resquest and response )
+const userRouter = require('./routes/user')
+// the first argument '/' is the path or url. The second argument is the callback function (resquest and response )
+const postRouter = require('./routes/post')
 app.get('/', (req, res) => {
     res.send('We are up and Running ');
   }); // this request is made to the homepage 
