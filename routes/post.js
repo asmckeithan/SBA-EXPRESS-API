@@ -1,21 +1,31 @@
-// //=-----------------------------------Setup------------------------------------
+// post.js
 
-// //Bringing in the express framework and storing it as a variable
-// const express = require('express');
-// const { resourceLimits } = require('worker_threads');
-// // initialiing the express framework and storing it as a variable 
-// const app = express();
+const express = require('express');
+const router = express.Router();
 
-// //assigning the port number for our server 
-// const PORT = 4000;
 
-// // the first argument '/' is the path or url. The secounbd argument is the callback function (resquest and response )
+const post = []// how the data will be displayed 
 
-// app.post('/add', (request, response) => {
-//   response.send('Now we are doing MATH')
-// })
-//   app.listen(PORT, () => {
-//     console.log(`Server running at http://localhost:${PORT}`);
-//   });
+//All post can be displayed using the code below 
+router.get('/', (request, response) => {
+    response.json(posts)
+})
 
-//   module.exports(express.Router)
+//Finding post by a specific id
+router.get('/:id', (request, response) => {
+    const id = parseInt(request.params.id)
+    const post = posts.find(post => id === id ) //as long as the ID matches the request will be found 
+    response.json(post)
+})
+
+router.post('/', (req, res) => {
+    const { id, title, content } = req.body;
+    if (!id || !Name || !email) {
+        return res.status(400).send('ID, Name, and email are required');
+    }
+
+    const newPost = { id, Name, email };
+    posts.push(newPost);
+    res.status(201).json(newPost);
+});
+module.exports = router;

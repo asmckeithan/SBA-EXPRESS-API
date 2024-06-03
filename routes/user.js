@@ -11,7 +11,7 @@ const users = require('../Data/user')
 // Define a GET route to fetch all users
 router.get('/', (req, res) => {
     // Logic to fetch all users
-    // res.send('List of all users');
+ 
     const users = getUsers()
     res.json(users)
 });
