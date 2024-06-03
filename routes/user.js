@@ -2,12 +2,18 @@ const express = require('express');
 
 const router = express.Router();//initialize our router 
 
+//Importing data from user file in data folder
+const {getUsers} = require('../Data/user')
+
+
 const users = require('../Data/user')
 // all routes start with '/users'
 // Define a GET route to fetch all users
 router.get('/', (req, res) => {
     // Logic to fetch all users
-    res.send('List of all users');
+    // res.send('List of all users');
+    const users = getUsers()
+    res.json(users)
 });
 
 // Define a POST route to create a new user
