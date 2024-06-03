@@ -2,6 +2,8 @@ const express = require('express');
 
 const router = express.Router();//initialize our router 
 
+
+
 //Importing data from user file in data folder
 const {getUsers} = require('../Data/user')
 

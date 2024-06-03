@@ -8,6 +8,29 @@ const app = express();
 //assigning the port number for our server 
 const PORT = 3000;
  
+const path = require('path');
+
+// Setting up EJS
+app.set('view engine', 'ejs');
+
+// app.use(bodyParser.urlencoded({ extended: true }));
+
+// Routes form for new User here http://localhost:3000/new-user
+app.get('/new-user', (req, res) => {
+    res.render('views');
+});
+
+app.post('/users', (req, res) => {
+    const { name, email } = req.body;
+    // Logic to save user to database, etc.
+    res.send(`User ${name} with email ${email} created successfully!`);
+});
+
+app.post('/users', (req, res) => {
+  const { name, email } = req.body;
+  // Logic to save user to database, etc.
+  res.send(`User ${name} with email ${email} created successfully!`);
+});
 
 //connecting user routes 
 const userRouter = require('./routes/user.js');

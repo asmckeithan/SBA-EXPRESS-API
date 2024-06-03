@@ -6,6 +6,8 @@ const router = express.Router();
 
 const post = []// how the data will be displayed 
 
+
+
 //All post can be displayed using the code below 
 router.get('/', (request, response) => {
     response.json(posts)
